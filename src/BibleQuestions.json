@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"text": "In how many days did God created the universe?",
-		"Choices": [
+		"choices": [
 			{
 				"text": "7",
 				"right": false
@@ -21,5 +21,51 @@
 			}
 		],
 		"ref": "Gn 1-2"
+	},
+	{
+		"id": 2,
+		"text": "How many brothers did David have?",
+		"choices": [
+			{
+				"text": "3",
+				"right": false
+			},
+			{
+				"text": "5",
+				"right": false
+			},
+			{
+				"text": "8",
+				"right": false
+			},
+			{
+				"text": "7",
+				"right": true
+			}
+		],
+		"ref": "1 Sam"
+	},
+	{
+		"id": 3,
+		"text": "A quien le dijo Jesús las palabras de Jn 3:16?",
+		"choices": [
+			{
+				"text": "A Pedro",
+				"right": false
+			},
+			{
+				"text": "A los 12 discipulos",
+				"right": false
+			},
+			{
+				"text": "A Zaqueo",
+				"right": false
+			},
+			{
+				"text": "A Nicodemo",
+				"right": true
+			}
+		],
+		"ref": "Jn 3"
 	}
 ]

@@ -10,8 +10,17 @@ import bq from './BibleQuestions.json';
 
 
 class App extends Component {
-  state = {
-    bq
+  constructor(props){
+    super(props);
+    this.state = {
+      bq
+    }
+
+  }
+
+  handleUsedQuestion(id){
+    const updatedList = this.state.bq.filter(item=>(item.id != id));
+    this.setState({bq: updatedList});
   }
 
   render() {
@@ -25,8 +34,7 @@ class App extends Component {
           </section>
 
           <section className="row">
-            {this.state.bq[0].text}
-            Here goes the Game
+            <Game questions={this.state.bq} usedQuestion={this.handleUsedQuestion}/>
           </section>
 
         </div>

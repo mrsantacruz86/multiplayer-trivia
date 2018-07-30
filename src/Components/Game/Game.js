@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
 import './Game.css';
+import Question from '../Question';
+import Alert from '../Alert';
 
+class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      scoreRed:0,
+      scoreBlue:0,
+      maxScore:10,
+      turn:"Blue",
+      play: true
+    }
+  }
 
-class App extends Component {
+  handleResults(){
+
+  }
+
   render() {
+    const list = this.props.questions;
+    const curQuestion = list[Math.floor(Math.random() * list.length)];
     return (
-        <div>
-          <h1>The Game should run here!</h1>
-        </div>
+      <div className="game">
+        {this.state.play ? 
+        <Question 
+          q={curQuestion}
+        /> 
+        : 
+        <Alert 
+          removeQuestion={this.props.usedQuestion(curQuestion.id)}
+        />}
+      </div>
     );
   }
 }
 
-export default App;
+export default Game;
