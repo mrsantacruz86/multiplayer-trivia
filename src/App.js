@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+import './App.css';
+import Alert from './Components/Alert';
+import Game from './Components/Game';
+import Choice from './Components/Choice';
+import Question from './Components/Question';
+import ScoreCard from './Components/ScoreCard';
+import Timer from './Components/Timer';
+import bq from './BibleQuestions.json';
+
+
+class App extends Component {
+  state = {
+    bq
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container-fluid">
+
+          <section className="row">
+            Here goes the teams and scores
+            The timer goes in the
+          </section>
+
+          <section className="row">
+            {this.state.bq[0].text}
+            Here goes the Game
+          </section>
+
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;

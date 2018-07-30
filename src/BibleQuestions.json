@@ -1,0 +1,25 @@
+[
+	{
+		"id": 1,
+		"text": "In how many days did God created the universe?",
+		"Choices": [
+			{
+				"text": "7",
+				"right": false
+			},
+			{
+				"text": "12",
+				"right": false
+			},
+			{
+				"text": "6",
+				"right": true
+			},
+			{
+				"text": "3",
+				"right": false
+			}
+		],
+		"ref": "Gn 1-2"
+	}
+]
