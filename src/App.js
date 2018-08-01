@@ -10,19 +10,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: bq
+      questions: bq,
+      scoreBlue:0,
+      scoreRed:0
     }
   }
   curQuestion() {
     return this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
   }
   removeUsedQuestion() {
-    const updatedList = this.state.questions.filter(item => (item !== this.state.curQuestion));
+    const updatedList = this.state.questions.filter(item => (item !== this.curQuestion));
     this.setState({
       questions: updatedList,
     });
   }
 
+  updateScores(scores){
+    this.setState({
+      scoreBlue: scores.scoreBlue,
+      scoreRed: scores.scoreRed
+    })
+  }
   render() {
     // var curQuestion = this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
     return (
@@ -34,7 +42,7 @@ class App extends Component {
               <div className="p-3 mb-2 bg-danger text-white justify-content-center">
                 <ScoreCard
                   teamName="Red"
-                  score="0"
+                  score={this.state.scoreRed}
                 />
               </div>
             </div>
@@ -51,7 +59,7 @@ class App extends Component {
               <div className="p-3 mb-2 bg-primary text-white">
                 <ScoreCard
                   teamName="Blue"
-                  score="0"
+                  score={this.state.scoreBlue}
                 />
               </div>
             </div>
@@ -60,7 +68,11 @@ class App extends Component {
           <section className="row">
 
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <Game question={this.curQuestion()} removeUsedQuestion={this.removeUsedQuestion} />
+              <Game
+                question={this.curQuestion()}
+                scores={this.updateScores}
+                removeUsedQuestion={this.removeUsedQuestion}
+              />
             </div>
 
           </section>

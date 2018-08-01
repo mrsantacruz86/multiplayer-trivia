@@ -9,12 +9,13 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreRed: 10,
-      scoreBlue: 10,
+      scoreRed: 0,
+      scoreBlue: 0,
       maxScore: 10,
       turn: randonSelect(["Blue", "Red"]),
       play: true
     }
+    this.handleResults = this.handleResults.bind(this);
   }
 
   handleResults(correct) {
@@ -23,12 +24,13 @@ class Game extends Component {
 
     if (team === "Blue") {
       if (correct) {
-        score += 1;
+        // score += 1;
+        this.props.scoreBlue(score + 1);
       }
       team = "Red"
     } else {
       if (correct) {
-        score += 1;
+        this.props.scoreRed(score + 1);
       }
       team = "Blue"
     }
