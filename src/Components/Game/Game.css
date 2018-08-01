@@ -1,3 +1,12 @@
-.Content{
+.game{
+	text-align: center;
+}
+.game .turn-to-play{
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
 
+.question .question-text{
+	margin-top: 1rem;
+	margin-bottom: 2.5rem;
 }
