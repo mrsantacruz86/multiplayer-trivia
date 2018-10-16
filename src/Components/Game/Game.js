@@ -63,6 +63,10 @@ resetGame() {
   });
 }
 
+componentDidMount(){
+  this.props.onCountDown;
+}
+
 render() {
   return (
     <div className="game">
@@ -70,11 +74,13 @@ render() {
       {/* {this.state.play ? */}
         <Question
         curQuestion={this.props.question}
+        time
         />
         :
         {/* <Alert
           handleNext={this.handleNext}
         />} */}
+
     </div>
   );
 }

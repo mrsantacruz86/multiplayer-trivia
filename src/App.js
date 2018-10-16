@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       questions: bq,
       scoreBlue:0,
-      scoreRed:0
+      scoreRed:0,
+      time:30
     }
   }
   curQuestion() {
@@ -31,6 +32,18 @@ class App extends Component {
       scoreRed: scores.scoreRed
     })
   }
+  handleCountDown = () => {
+    const countDownTimer = setInterval(() => {
+      let t = this.state.time;
+      if (t >= 1) {
+        this.setState({ time: t - 1 });
+      } else {
+        clearInterval(countDownTimer);
+        alert("You have ran out of time");
+      }
+    }, 1000);
+  }
+
   render() {
     // var curQuestion = this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
     return (
@@ -50,8 +63,8 @@ class App extends Component {
             <div className="col-sm">
               <div className="p-3 mb-2 bg-warning text-dark">
                 <Timer
-                  time="10"
-                />
+                  time={this.state.time}
+                  />
               </div>
             </div>
 
@@ -60,7 +73,7 @@ class App extends Component {
                 <ScoreCard
                   teamName="Blue"
                   score={this.state.scoreBlue}
-                />
+                  />
               </div>
             </div>
           </section>
@@ -71,8 +84,10 @@ class App extends Component {
               <Game
                 question={this.curQuestion()}
                 scores={this.updateScores}
+                onCountDown={this.handleCountDown}
                 removeUsedQuestion={this.removeUsedQuestion}
               />
+              {this.handleCountDown}
             </div>
 
           </section>
