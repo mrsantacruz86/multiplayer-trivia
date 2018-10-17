@@ -9,46 +9,45 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  red: [],
-  isFetching: false,
-  isError: false,
-  savingArticle: false,
-  articleSaved: false,
-  errorOnSave: false
+  redScore: 0,
+  blueScore: 0,
+  timer: 30,
+  timerStatus: "pause",
+  questions: [],
+  selectedQuestion: "",
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case FETCH_ARTICLES:
+    case INCREASE_RED_SCORE:
       return Object.assign({}, state, {
-        isFetching: true,
-        data: [],
-        isError: false
+        redScore: state.redScore + 1
       });
-    case RECEIVE_ARTICLES:
+    case INCREASE_BLUE_SCORE:
       return Object.assign({}, state, {
-        data: action.data,
-        isFetching: false,
-        isError: false
+        blueScore: state.blueScore +1
       });
-    case RECEIVE_ERROR:
+    case RESET_SCORES:
       return Object.assign({}, state, {
-        isError: true,
-        isFetching: false
+        blueScore: 0,
+        redScore: 0
       });
-    case SAVE_ARTICLE:
+    case RESET_TIMER:
       return Object.assign({}, state, {
-        data: action.data,
+        timer:30,
+        timerStatus: "play"
       });
-    case ARTICLE_SAVED:
+    case STOP_TIMER:
       return Object.assign({}, state, {
-        isError: true,
-        isFetching: false
+        timerStatus: "pause"
       });
-    case RECEIVE_ONSAVE_ERROR:
+    case START_TIMER:
       return Object.assign({}, state, {
-        isError: true,
-        isFetching: false
+        timerStatus: "play"
+      });
+    case DISPLAY_QUESTION:
+      return Object.assign({}, state, {
+        selectedQuestion: action.payload
       });
     default:
       return state;
