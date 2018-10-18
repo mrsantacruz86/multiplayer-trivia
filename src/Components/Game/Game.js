@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Game.css';
 import Question from '../Question';
 import Alert from '../Alert';
@@ -56,12 +57,6 @@ checkForWinner() {
   }
 }
 
-resetGame() {
-  this.setState({
-    scoreBlue: 0,
-    scoreRed: 0,
-  });
-}
 
 componentDidMount(){
   this.props.onCountDown;
@@ -71,19 +66,21 @@ render() {
   return (
     <div className="game">
       <h3 className="turn-to-play">{`It's ${this.state.turn}'s turn.`}</h3> <br />
-      {/* {this.state.play ? */}
         <Question
         curQuestion={this.props.question}
         time
         />
-        :
-        {/* <Alert
-          handleNext={this.handleNext}
-        />} */}
 
     </div>
   );
 }
 }
+const mapStateToProps = state => {
+  return {...state}
+}
+const mapDispatchToProps = dispatch => {
+  return {
 
-export default Game;
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
