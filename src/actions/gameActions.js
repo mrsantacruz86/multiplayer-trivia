@@ -3,6 +3,7 @@ import store from '../store';
 //Actions
 //-------------------------
 import {
+  LOAD_QUESTIONS,
   INCREASE_RED_SCORE,
   INCREASE_BLUE_SCORE,
   RESET_SCORES,
@@ -14,6 +15,7 @@ import {
 
 //Actions Creators
 //-------------------------
+export const loadQuestions = (questions) => ({ type: LOAD_QUESTIONS, payload: questions });
 export const increaseRedScore = () => ({ type: INCREASE_RED_SCORE });
 export const increaseBlueScore = () => ({ type: INCREASE_BLUE_SCORE });
 export const resetScores = () => ({ type: RESET_SCORES });

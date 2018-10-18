@@ -1,4 +1,5 @@
 import {
+  LOAD_QUESTIONS,
   INCREASE_RED_SCORE,
   INCREASE_BLUE_SCORE,
   RESET_SCORES,
@@ -9,16 +10,22 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
+  loading:false,
+  
+  questions:[],
   redScore: 0,
   blueScore: 0,
   timer: 30,
   timerStatus: "pause",
-  questions: [],
   selectedQuestion: "",
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case LOAD_QUESTIONS:
+      return Object.assign({}, state, {
+        questions: action.payload
+      });
     case INCREASE_RED_SCORE:
       return Object.assign({}, state, {
         redScore: state.redScore + 1

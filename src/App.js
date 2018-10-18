@@ -1,51 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
+import {connect} from 'react-redux';
 import Game from './Components/Game';
 import ScoreCard from './Components/ScoreCard';
 import Timer from './Components/Timer';
-import bq from './BibleQuestions.json';
+import loadFromDB from './utils/API';
+// import bq from './BibleQuestions.json';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questions: bq,
-      scoreBlue:0,
-      scoreRed:0,
-      time:30
-    }
+  componentDidMount(){
+    loadFromDB();
   }
   curQuestion() {
     return this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
   }
-  removeUsedQuestion() {
-    const updatedList = this.state.questions.filter(item => (item !== this.curQuestion));
-    this.setState({
-      questions: updatedList,
-    });
-  }
-
-  updateScores(scores){
-    this.setState({
-      scoreBlue: scores.scoreBlue,
-      scoreRed: scores.scoreRed
-    })
-  }
-  handleCountDown = () => {
-    const countDownTimer = setInterval(() => {
-      let t = this.state.time;
-      if (t >= 1) {
-        this.setState({ time: t - 1 });
-      } else {
-        clearInterval(countDownTimer);
-        alert("You have ran out of time");
-      }
-    }, 1000);
-  }
 
   render() {
-    // var curQuestion = this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
     return (
       <div className="App">
         <div className="container-fluid">
@@ -97,5 +68,6 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => state;
 
-export default App;
+export default connect(mapStateToProps)(App);

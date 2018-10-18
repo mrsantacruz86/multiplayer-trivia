@@ -1,5 +1,6 @@
 //Game actions
 //--------------------------------------------
+export const LOAD_QUESTIONS = "LOAD_QUESTIONS";
 export const INCREASE_RED_SCORE = "INCREASE_RED_SCORE";
 export const INCREASE_BLUE_SCORE = "INCREASE_BLUE_SCORE";
 export const RESET_SCORES = "RESET_SCORES";
