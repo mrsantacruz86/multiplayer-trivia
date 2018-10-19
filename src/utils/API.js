@@ -1,8 +1,5 @@
-import * as admin from 'firebase-admin';
-import serviceAccount from './serviceAccountKey.json';
-// import {connect} from 'react-redux';
-import { loadQuestions } from '../actions/gameActions';
-import store from '../store';
+import admin from 'firebase-admin';
+import serviceAccount from '../serviceAccountKey.json';
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -11,13 +8,13 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const loadFromDB = () => {
+const loadFromDB = (cb) => {
   db.collection('questions').get()
     .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data());
-      });
-      store.dispatch(loadQuestions(snapshot))
+      // snapshot.forEach((doc) => {
+      //   console.log(doc.id, '=>', doc.data());
+      // });
+      cb(snapshot);
     })
     .catch((err) => {
       console.log('Error getting documents', err);

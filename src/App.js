@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Game from './Components/Game';
 import ScoreCard from './Components/ScoreCard';
 import Timer from './Components/Timer';
 import loadFromDB from './utils/API';
+import { loadQuestions } from './actions/gameActions';
 // import bq from './BibleQuestions.json';
 
 
 class App extends Component {
-  componentDidMount(){
-    loadFromDB();
+  componentDidMount() {
+    loadFromDB((snapshot) => {
+      this.props.load(snapshot)
+    });
   }
   curQuestion() {
     return this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
@@ -24,27 +27,27 @@ class App extends Component {
           <section className="row">
             <div className="col-sm">
               <div className="p-3 mb-2 bg-danger text-white justify-content-center">
-                <ScoreCard
+                {/* <ScoreCard
                   teamName="Red"
                   score={this.state.scoreRed}
-                />
+                /> */}
               </div>
             </div>
 
             <div className="col-sm">
               <div className="p-3 mb-2 bg-warning text-dark">
-                <Timer
+                {/* <Timer
                   time={this.state.time}
-                  />
+                  /> */}
               </div>
             </div>
 
             <div className="col-sm">
               <div className="p-3 mb-2 bg-primary text-white">
-                <ScoreCard
+                {/* <ScoreCard
                   teamName="Blue"
                   score={this.state.scoreBlue}
-                  />
+                  /> */}
               </div>
             </div>
           </section>
@@ -52,13 +55,9 @@ class App extends Component {
           <section className="row">
 
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <Game
+              {/* <Game
                 question={this.curQuestion()}
-                scores={this.updateScores}
-                onCountDown={this.handleCountDown}
-                removeUsedQuestion={this.removeUsedQuestion}
-              />
-              {this.handleCountDown}
+              /> */}
             </div>
 
           </section>
@@ -68,6 +67,12 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => state;
+const mapStateToProps = state => state.game;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    load: q => dispatch(loadQuestions(q))
+  }
+}
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
