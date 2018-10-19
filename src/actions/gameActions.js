@@ -1,4 +1,4 @@
-import store from '../store';
+// import store from '../store';
 
 //Actions
 //-------------------------
@@ -10,7 +10,8 @@ import {
   STOP_TIMER,
   START_TIMER,
   RESET_TIMER,
-  DISPLAY_QUESTION
+  DISPLAY_QUESTION,
+  SWITCH_TURN,
 } from "./actionTypes";
 
 //Actions Creators
@@ -22,4 +23,17 @@ export const resetScores = () => ({ type: RESET_SCORES });
 export const stopTimer = () => ({ type: STOP_TIMER });
 export const startTimer = () => ({ type: START_TIMER });
 export const reset_timer = () => ({ type: RESET_TIMER });
-export const displayQuestion = (question) => ({ type: DISPLAY_QUESTION, payload:question});
+export const displayQuestion = (question) => ({ type: DISPLAY_QUESTION, payload: question });
+
+export const switchTurn = (team) => {
+  let action = { type: "SWITCH_TURN" };
+  switch (team) {
+    case "blue":
+      action.payload = "red"
+      return action;
+    case "red":
+      action.payload = "blue"
+      return action;
+  }
+  return action;
+}

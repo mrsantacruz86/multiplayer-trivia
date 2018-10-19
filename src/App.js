@@ -4,19 +4,14 @@ import { connect } from 'react-redux';
 import Game from './Components/Game';
 import ScoreCard from './Components/ScoreCard';
 import Timer from './Components/Timer';
-import loadFromDB from './utils/API';
+// import loadFromDB from './utils/API';
 import { loadQuestions } from './actions/gameActions';
-// import bq from './BibleQuestions.json';
+import bq from './BibleQuestions.json';
 
 
 class App extends Component {
   componentDidMount() {
-    loadFromDB((snapshot) => {
-      this.props.load(snapshot)
-    });
-  }
-  curQuestion() {
-    return this.state.questions[Math.floor(Math.random() * this.state.questions.length)]
+      this.props.load(bq)
   }
 
   render() {
@@ -27,27 +22,27 @@ class App extends Component {
           <section className="row">
             <div className="col-sm">
               <div className="p-3 mb-2 bg-danger text-white justify-content-center">
-                {/* <ScoreCard
+                <ScoreCard
                   teamName="Red"
-                  score={this.state.scoreRed}
-                /> */}
+                  score={this.props.scoreRed}
+                />
               </div>
             </div>
 
             <div className="col-sm">
               <div className="p-3 mb-2 bg-warning text-dark">
-                {/* <Timer
-                  time={this.state.time}
-                  /> */}
+                <Timer
+                  time={this.props.time}
+                  />
               </div>
             </div>
 
             <div className="col-sm">
               <div className="p-3 mb-2 bg-primary text-white">
-                {/* <ScoreCard
+                <ScoreCard
                   teamName="Blue"
-                  score={this.state.scoreBlue}
-                  /> */}
+                  score={this.props.scoreBlue}
+                  />
               </div>
             </div>
           </section>
@@ -55,9 +50,9 @@ class App extends Component {
           <section className="row">
 
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              {/* <Game
-                question={this.curQuestion()}
-              /> */}
+              <Game
+                question={this.props.game.selectedQuestion}
+              />
             </div>
 
           </section>
@@ -67,7 +62,9 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => state.game;
+const mapStateToProps = state => {
+  return {...state}
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     load: q => dispatch(loadQuestions(q))
