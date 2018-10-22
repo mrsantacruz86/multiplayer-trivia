@@ -23,7 +23,7 @@ const initialState = {
   blueScore: 0,
   timer: 30,
   timerStatus: "pause",
-  selectedQuestion: [],
+  selectedQuestion: {},
 };
 
 export default function (state = initialState, action) {

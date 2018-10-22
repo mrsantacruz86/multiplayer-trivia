@@ -15,7 +15,7 @@ class Game extends Component {
     return (
       <div className="game">
         <h3 className="turn-to-play">{`It's ${this.props.game.turn}'s turn.`}</h3> <br />
-        <Question/>
+        <Question />
 
       </div>
     );

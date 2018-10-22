@@ -26,7 +26,7 @@ export const reset_timer = () => ({ type: RESET_TIMER });
 export const displayQuestion = (question) => ({ type: DISPLAY_QUESTION, payload: question });
 
 export const switchTurn = (team) => {
-  let action = { type: "SWITCH_TURN" };
+  let action = { type: SWITCH_TURN };
   switch (team) {
     case "blue":
       action.payload = "red"
@@ -34,6 +34,8 @@ export const switchTurn = (team) => {
     case "red":
       action.payload = "blue"
       return action;
+    default:
+      action.payload = team
+      return action;
   }
-  return action;
 }
