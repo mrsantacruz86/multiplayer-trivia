@@ -2,15 +2,15 @@
   "name": "bible-rivia",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mrsantacruz86.github.io",
+  "homepage": "https://mrsantacruz86.github.io/multiplayer-trivia",
   "dependencies": {
-    "firebase-admin": "^6.0.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-redux": "^5.0.7",
+    "bootstrap": "^4.3.1",
+    "firebase-admin": "^6.5.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^5.1.1",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.1",
-    "redux-logger": "^3.0.6"
+    "redux": "^4.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",

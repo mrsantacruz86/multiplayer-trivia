@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import game from "./gameReducer";
+import gameReducer from "./gameReducer";
 
-export default combineReducers({ 
-  game
+export default combineReducers({
+  game: gameReducer
 });
