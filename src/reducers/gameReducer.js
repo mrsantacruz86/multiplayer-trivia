@@ -1,4 +1,4 @@
-import randomSelect from '../utils/randomSelect';
+import randomSelect from "../utils/randomSelect";
 import {
   LOAD_QUESTIONS,
   INCREASE_RED_SCORE,
@@ -9,11 +9,11 @@ import {
   RESET_TIMER,
   DISPLAY_QUESTION,
   SWITCH_TURN
-} from "../actions/actionTypes";
+} from "../actions/types";
 
-const pickRandom = (questions) => {
+const pickRandom = questions => {
   return questions[Math.floor(Math.random() * questions.length)];
-}
+};
 
 const initialState = {
   loading: false,
@@ -23,10 +23,10 @@ const initialState = {
   blueScore: 0,
   timer: 30,
   timerStatus: "pause",
-  selectedQuestion: {},
+  selectedQuestion: {}
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case LOAD_QUESTIONS:
       return Object.assign({}, state, {

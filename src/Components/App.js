@@ -2,31 +2,42 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import ScoreCard from "./ScoreCard";
+import Question from "./Question";
 
 class App extends Component {
+  state = {
+    question: {
+      id: 3,
+      text: "A quien le dijo Jesús las palabras de Jn 3:16?",
+      choices: [
+        { text: "A Pedro", right: false },
+        { text: "A los 12 discipulos", right: false },
+        { text: "A Zaqueo", right: false },
+        { text: "A Nicodemo", right: true }
+      ],
+      ref: "Jn 3"
+    }
+  };
   render() {
     return (
       <div className="App">
-        <div className="title">
-          <h1>BIBLE TRIVIA</h1>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container-fluid">
+            <div class="row">
+              <div className="col">
+                <ScoreCard playerName="Nelson Diaz" turn={true} score={5} />
+              </div>
+              <div className="col">
+                <h1 className="display-3 text-center">BIBLE TRIVIA</h1>
+              </div>
+              <div className="col text-right">
+                <ScoreCard playerName="Nelson Diaz" turn={true} score={5} />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div id="Is_this_a_sample_question_">
-          <span>Is this a sample question?</span>
-        </div>
-
-        <div id="A__Choise">
-          <span>A. Lorem ipsum dolor sit amet, consetetur.</span>
-        </div>
-        <div id="A__Choise_A0_Text_4">
-          <span>B. Lorem ipsum dolor sit amet, consetetur.</span>
-        </div>
-        <div id="A__Choise_A0_Text_5">
-          <span>C. Lorem ipsum dolor sit amet, consetetur.</span>
-        </div>
-        <div id="A__Choise_A0_Text_6">
-          <span>D. Lorem ipsum dolor sit amet, consetetur.</span>
-        </div>
+        <Question question={this.state.question} />
 
         <footer className="footer">
           <span> © Copyright 2019. Nelson Diaz</span>
