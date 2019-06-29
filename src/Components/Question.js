@@ -3,33 +3,32 @@ import PropTypes from "prop-types";
 
 const Question = props => {
   const renderChoices = choices => {
-    if (!choices) {
+    return choices.map((choice, i) => {
       return (
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      );
-    }
-    return choices.map(choise => {
-      return (
-        <a href="#" className="list-group-item list-group-item-action">
-          {choise.text}
+        <a href="#" className="list-group-item list-group-item-action" key={i}>
+          {choice}
         </a>
       );
     });
   };
 
   const { question } = props;
+
+  if (!question) {
+    return (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="container text-center">
-      <div className="question-title">
-        <span>Is this a sample question?</span>
-      </div>
-      <hr />
+      <div className="question-title">{question.text}</div>
+      <hr className="mb-5" />
 
-      <div className="list-group">{renderChoices(question.choices)}</div>
+      <div className="list-group choices">{renderChoices(question.choices)}</div>
     </div>
   );
 };

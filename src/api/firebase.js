@@ -1,27 +1,27 @@
-import * as admin from 'firebase-admin';
-const serviceAccount = require('./serviceAccountKey.json');
+import * as firebase from "firebase/app";
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://bibletrivia-online-game.firebaseio.com"
-});
+// Firebase services that we are going to use
+import "firebase/auth";
+import "firebase/firestore";
 
-const db = admin.firestore();
-db.settings({timestampsInSnapshots: true});
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDc_syklcioRHhuyilM_aFU9sFzinSU7Uo",
+  authDomain: "bibletrivia-online-game.firebaseapp.com",
+  databaseURL: "https://bibletrivia-online-game.firebaseio.com",
+  projectId: "bibletrivia-online-game",
+  storageBucket: "bibletrivia-online-game.appspot.com",
+  messagingSenderId: "598878297523",
+  appId: "1:598878297523:web:38af070f1cade1a5"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-const loadFromDB = (cb) => {
-  db.collection('questions').get()
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data());
-      });
-      cb(snapshot.docs.data);
-    })
-    .catch((err) => {
-      console.log('Error getting documents', err);
-    });
-}
+export const db = firebase.firestore();
 
-export default loadFromDB;
-
-
+// loadQuestion = async () => {
+//   const questions = await db.collection("questions").get();
+//   for (let doc of questions.docs) {
+//     console.log(JSON.stringify(doc.data(), "", 2));
+//   }
+// };

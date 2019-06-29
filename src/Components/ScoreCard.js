@@ -5,9 +5,9 @@ export default function ScoreCard(props) {
 
   const renderTurn = turn => {
     if (turn) {
-      return <i class="fas fa-flag" />;
+      return <i className="fas fa-flag" />;
     } else {
-      return <i class="far fa-flag" />;
+      return <i className="far fa-flag" />;
     }
   };
 

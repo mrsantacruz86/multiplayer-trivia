@@ -1,71 +1,100 @@
 [
-	{
-		"id": 1,
-		"text": "In how many days did God created the universe?",
-		"choices": [
-			{
-				"text": "7",
-				"right": false
-			},
-			{
-				"text": "12",
-				"right": false
-			},
-			{
-				"text": "6",
-				"right": true
-			},
-			{
-				"text": "3",
-				"right": false
-			}
-		],
-		"ref": "Gn 1-2"
-	},
-	{
-		"id": 2,
-		"text": "How many brothers did David have?",
-		"choices": [
-			{
-				"text": "3",
-				"right": false
-			},
-			{
-				"text": "5",
-				"right": false
-			},
-			{
-				"text": "8",
-				"right": false
-			},
-			{
-				"text": "7",
-				"right": true
-			}
-		],
-		"ref": "1 Sam"
-	},
-	{
-		"id": 3,
-		"text": "A quien le dijo Jesús las palabras de Jn 3:16?",
-		"choices": [
-			{
-				"text": "A Pedro",
-				"right": false
-			},
-			{
-				"text": "A los 12 discipulos",
-				"right": false
-			},
-			{
-				"text": "A Zaqueo",
-				"right": false
-			},
-			{
-				"text": "A Nicodemo",
-				"right": true
-			}
-		],
-		"ref": "Jn 3"
-	}
+  {
+    "id": 1,
+    "text": "In how many days did God created the universe?",
+    "choices": [
+      {
+        "text": "7",
+        "right": false
+      },
+      {
+        "text": "12",
+        "right": false
+      },
+      {
+        "text": "6",
+        "right": true
+      },
+      {
+        "text": "3",
+        "right": false
+      }
+    ],
+    "ref": "Gn 1-2"
+  },
+  {
+    "id": 2,
+    "text": "How many brothers did David have?",
+    "choices": [
+      {
+        "text": "3",
+        "right": false
+      },
+      {
+        "text": "5",
+        "right": false
+      },
+      {
+        "text": "8",
+        "right": false
+      },
+      {
+        "text": "7",
+        "right": true
+      }
+    ],
+    "ref": "1 Sam"
+  },
+  {
+    "id": 3,
+    "text": "A quien le dijo Jesús las palabras de Jn 3:16?",
+    "choices": [
+      {
+        "text": "A Pedro",
+        "right": false
+      },
+      {
+        "text": "A los 12 discipulos",
+        "right": false
+      },
+      {
+        "text": "A Zaqueo",
+        "right": false
+      },
+      {
+        "text": "A Nicodemo",
+        "right": true
+      }
+    ],
+    "ref": "Jn 3"
+  },
+  {
+    "id": 4,
+    "text": "The 10 Commandments were given by God to Moses on the Mount:",
+    "choices": {
+      "a": "Carmel",
+      "b": "Zion",
+      "c": "Sinai",
+      "d": "Hermon"
+    },
+    "rightAnswer": "c"
+  },
+  {
+    "answers": {
+      "a": "Jesus",
+      "b": "Noah",
+      "c": "Moses",
+      "d": "Abraham"
+    },
+    "rightAnswer": "c",
+    "text": "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was..."
+  },
+  {
+    "answers": {
+      "a": "True",
+      "b": "False"
+    },
+    "rightAnswer": "b",
+    "text": "When the apostle Paul had his encounter with Jesus, he was going to Jerusalem."
+  }
 ]

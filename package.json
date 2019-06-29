@@ -5,7 +5,7 @@
   "homepage": "https://mrsantacruz86.github.io/multiplayer-trivia",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "firebase-admin": "^6.5.1",
+    "firebase": "^6.2.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^5.1.1",
