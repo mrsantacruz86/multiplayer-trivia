@@ -18,7 +18,7 @@ const pickRandom = questions => {
 const initialState = {
   loading: false,
   turn: randomSelect(["blue", "red"]),
-  questions: [],
+  questions: {},
   redScore: 0,
   blueScore: 0,
   timer: 30,
@@ -29,10 +29,10 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case LOAD_QUESTIONS:
-      return Object.assign({}, state, {
-        questions: action.payload,
-        selectedQuestion: pickRandom(action.payload)
-      });
+      return {
+        ...state,
+        questions: action.payload
+      };
     case INCREASE_RED_SCORE:
       return Object.assign({}, state, {
         redScore: state.redScore + 1

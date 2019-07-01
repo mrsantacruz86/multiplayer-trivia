@@ -1,4 +1,4 @@
-// import store from '../store';
+import { db } from "../api/firebase";
 
 //Actions
 //-------------------------
@@ -16,10 +16,22 @@ import {
 
 //Actions Creators
 //-------------------------
-export const loadQuestions = questions => ({
-  type: LOAD_QUESTIONS,
-  payload: questions
-});
+
+export const loadQuestions = () => async dispatch => {
+  const questions = {};
+  const response = await db
+    .collection("questions")
+    .limit(10)
+    .get();
+  for (let doc of response.docs) {
+    questions[doc.id] = doc.data();
+  }
+  return {
+    type: LOAD_QUESTIONS,
+    payload: questions
+  };
+};
+
 export const increaseRedScore = () => ({ type: INCREASE_RED_SCORE });
 export const increaseBlueScore = () => ({ type: INCREASE_BLUE_SCORE });
 export const resetScores = () => ({ type: RESET_SCORES });
