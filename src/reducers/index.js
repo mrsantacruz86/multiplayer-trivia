@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
-import gameReducer from "./gameReducer";
+import questionReducer from "./questionReducer";
 
 export default combineReducers({
-  game: gameReducer
+  auth: null,
+  questions: questionReducer,
+  games: null,
+  timer: null
 });

@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 
 import ScoreCard from "./ScoreCard";
 import Question from "./Question";
-import { loadQuestions } from "../actions";
+import { fetchQuestions } from "../actions";
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadQuestions();
+    console.log("App mounted");
+    this.props.fetchQuestions();
   }
 
   render() {
@@ -29,7 +30,8 @@ class App extends Component {
           </div>
         </div>
 
-        <Question question={this.props.questions[0]} />
+        {/* <Question question={this.props.questions[0]} /> */}
+        {/* <Question question={this.props.questions[0]} /> */}
 
         <footer className="footer fixed-bottom">
           <span> © Copyright 2019. Nelson Diaz</span>
@@ -39,10 +41,12 @@ class App extends Component {
   }
 }
 const mapStateToProps = state => {
-  return { ...state };
+  return {
+    questions: Object.values(state.questions)
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { loadQuestions }
+  { fetchQuestions }
 )(App);
