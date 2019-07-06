@@ -1,5 +1,5 @@
 import _ from "lodash";
-import randomSelect from "../utils/randomSelect";
+// import randomSelect from "../utils/randomSelect";
 import {
   CREATE_QUESTION,
   FETCH_QUESTIONS,
@@ -17,7 +17,7 @@ import {
 export default (state = {}, action) => {
   switch (action.type) {
     case FETCH_QUESTIONS:
-      console.log(action.payload);
+      console.log("Reducer-->", action.payload);
       return { ...state, ...action.payload };
 
     case FETCH_QUESTION:

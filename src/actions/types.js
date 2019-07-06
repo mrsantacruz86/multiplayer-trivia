@@ -15,9 +15,7 @@ export const INCREASE_BLUE_SCORE = "INCREASE_BLUE_SCORE";
 export const RESET_SCORES = "RESET_SCORES";
 
 // Timer
-export const STOP_TIMER = "STOP_TIMER";
-export const START_TIMER = "START_TIMER";
-export const RESET_TIMER = "RESET_TIMER";
+export const UPDATE_TIMER = "UPDATE_TIMER";
 
 // Turn
 export const SWITCH_TURN = "SWITCH_TURN";
