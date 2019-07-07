@@ -2,10 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Question = props => {
+  const onSelectChoice = selection => {
+    if (selection === props.question.rightAnswer) {
+      alert("Corrrect!");
+    } else {
+      alert("Wrong!");
+    }
+  };
+
   const renderChoices = choices => {
     return choices.map((choice, i) => {
       return (
-        <a href="#" className="list-group-item list-group-item-action" key={i}>
+        <a
+          href="#"
+          className="list-group-item list-group-item-action"
+          key={i}
+          onClick={() => onSelectChoice(choice)}
+        >
           {choice}
         </a>
       );
@@ -23,6 +36,7 @@ const Question = props => {
       </div>
     );
   }
+
   return (
     <div className="container text-center">
       <div className="question-title">{question.text}</div>

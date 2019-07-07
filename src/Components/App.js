@@ -5,15 +5,24 @@ import ScoreCard from "./ScoreCard";
 import Question from "./Question";
 import { fetchQuestions, updateTimer } from "../actions";
 
+// Styles
+import "./App.css";
+
 class App extends Component {
+  countdown = setInterval(() => {
+    this.props.updateTimer(this.props.timer - 1);
+  }, 1000);
+
   componentDidMount() {
     this.props.fetchQuestions();
-    if (this.props.timer <= 0) {
+    this.props.updateTimer(10);
+    // console.log(this.props.timer);
+  }
+
+  componentWillUpdate() {
+    if (this.props.timer <= 1) {
       clearInterval(this.countdown);
     }
-    this.countdown = setInterval(() => {
-      this.props.updateTimer(this.props.timer - 1);
-    }, 1000);
   }
 
   render() {
@@ -31,12 +40,7 @@ class App extends Component {
               </div>
               <div className="col text-center">
                 <h1 className="display-6">BIBLE TRIVIA</h1>
-                <h2
-                  className="display-4 rounded-circle"
-                  style={{ backgroundColor: "blue", color: "white" }}
-                >
-                  {this.props.timer}
-                </h2>
+                <h2 className="display-4 rounded-circle bg--purple timer">{this.props.timer}</h2>
               </div>
               <div className="col text-center">
                 <ScoreCard playerName="Nelson Diaz" turn={true} score={5} />
