@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Question = props => {
-  const onSelectChoice = selection => {
-    if (selection === props.question.rightAnswer) {
+  const onSelectChoice = choice => {
+    if (choice.isRight) {
       alert('Corrrect!');
     } else {
       alert('Wrong!');
@@ -13,14 +13,13 @@ const Question = props => {
   const renderChoices = choices => {
     return choices.map((choice, i) => {
       return (
-        <a
-          href="#"
+        <div
           className="list-group-item list-group-item-action"
           key={i}
           onClick={() => onSelectChoice(choice)}
         >
-          {choice}
-        </a>
+          {choice.text}
+        </div>
       );
     });
   };

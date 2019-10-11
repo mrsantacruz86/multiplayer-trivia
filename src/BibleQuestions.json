@@ -5,19 +5,19 @@
     "choices": [
       {
         "text": "7",
-        "right": false
+        "isRight": false
       },
       {
         "text": "12",
-        "right": false
+        "isRight": false
       },
       {
         "text": "6",
-        "right": true
+        "isRight": true
       },
       {
         "text": "3",
-        "right": false
+        "isRight": false
       }
     ],
     "ref": "Gn 1-2"
@@ -28,19 +28,19 @@
     "choices": [
       {
         "text": "3",
-        "right": false
+        "isRight": false
       },
       {
         "text": "5",
-        "right": false
+        "isRight": false
       },
       {
         "text": "8",
-        "right": false
+        "isRight": false
       },
       {
         "text": "7",
-        "right": true
+        "isRight": true
       }
     ],
     "ref": "1 Sam"
@@ -51,19 +51,19 @@
     "choices": [
       {
         "text": "A Pedro",
-        "right": false
+        "isRight": false
       },
       {
         "text": "A los 12 discipulos",
-        "right": false
+        "isRight": false
       },
       {
         "text": "A Zaqueo",
-        "right": false
+        "isRight": false
       },
       {
         "text": "A Nicodemo",
-        "right": true
+        "isRight": true
       }
     ],
     "ref": "Jn 3"
@@ -71,30 +71,59 @@
   {
     "id": 4,
     "text": "The 10 Commandments were given by God to Moses on the Mount:",
-    "choices": {
-      "a": "Carmel",
-      "b": "Zion",
-      "c": "Sinai",
-      "d": "Hermon"
-    },
-    "rightAnswer": "c"
+    "choices": [
+      {
+        "text": "Carmel",
+        "isRight": false
+      },
+      {
+        "text": "Zion",
+        "isRight": false
+      },
+      {
+        "text": "Sinai",
+        "isRight": true
+      },
+      {
+        "text": "Hermon",
+        "isRight": false
+      }
+    ]
   },
   {
-    "answers": {
-      "a": "Jesus",
-      "b": "Noah",
-      "c": "Moses",
-      "d": "Abraham"
-    },
-    "rightAnswer": "c",
-    "text": "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was..."
+    "id": 5,
+    "text": "In the book of Exodus God send a man to deliver the Hebrews from slavery: that man was...",
+    "choices": [
+      {
+        "text": "Jesus",
+        "isRight": false
+      },
+      {
+        "text": "Noah",
+        "isRight": false
+      },
+      {
+        "text": "Moses",
+        "isRight": true
+      },
+      {
+        "text": "Abraham",
+        "isRight": false
+      }
+    ]
   },
   {
-    "answers": {
-      "a": "True",
-      "b": "False"
-    },
-    "rightAnswer": "b",
-    "text": "When the apostle Paul had his encounter with Jesus, he was going to Jerusalem."
+    "id": 6,
+    "text": "When the apostle Paul had his encounter with Jesus, he was going to Jerusalem.",
+    "choices": [
+      {
+        "text": "True",
+        "isRight": false
+      },
+      {
+        "text": "False",
+        "isRight": true
+      }
+    ]
   }
 ]

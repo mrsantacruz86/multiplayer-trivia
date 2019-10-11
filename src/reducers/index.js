@@ -1,10 +1,8 @@
-import { combineReducers } from "redux";
-import questionReducer from "./questionReducer";
-import timer from "./timerReducer";
+import { combineReducers } from 'redux';
+import auth from './authReducer';
+import game from './gameReducer';
 
 export default combineReducers({
-  auth: null,
-  questions: questionReducer,
-  games: null,
-  timer
+  auth: auth,
+  game: game
 });

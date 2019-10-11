@@ -1,4 +1,4 @@
-import { db } from "../api/firebase";
+import { db } from '../api/firebase';
 
 //Actions
 //-------------------------
@@ -13,7 +13,7 @@ import {
   // RESET_SCORES,
   UPDATE_TIMER,
   SWITCH_TURN
-} from "./types";
+} from './types';
 
 //Actions Creators
 //-------------------------
@@ -21,13 +21,12 @@ import {
 export const fetchQuestions = () => async dispatch => {
   const questions = {};
   const response = await db
-    .collection("questions")
+    .collection('questions')
     // .limit(10)
     .get();
   for (let doc of response.docs) {
     questions[doc.id] = { ...doc.data(), id: doc.id };
   }
-  // console.log("Action Creator-->", questions);
   dispatch({
     type: FETCH_QUESTIONS,
     payload: questions
