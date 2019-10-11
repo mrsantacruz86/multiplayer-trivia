@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function ScoreCard(props) {
+const ScoreCard = props => {
   const { playerName, score, turn } = props;
 
   const renderTurn = turn => {
@@ -18,4 +19,8 @@ export default function ScoreCard(props) {
       <div>{renderTurn(turn)}</div>
     </div>
   );
-}
+};
+
+ScoreCard.propTypes = {};
+
+export default ScoreCard;

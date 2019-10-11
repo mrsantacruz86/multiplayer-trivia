@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import ScoreCard from "./ScoreCard";
-import Question from "./Question";
-import { fetchQuestions, updateTimer } from "../actions";
+import ScoreCard from './ScoreCard';
+import Question from './Question';
+import { fetchQuestions, updateTimer } from '../actions';
 
 // Styles
-import "./App.css";
+import './App.css';
 
 class App extends Component {
   countdown = setInterval(() => {

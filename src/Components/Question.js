@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Question = props => {
   const onSelectChoice = selection => {
     if (selection === props.question.rightAnswer) {
-      alert("Corrrect!");
+      alert('Corrrect!');
     } else {
-      alert("Wrong!");
+      alert('Wrong!');
     }
   };
 
