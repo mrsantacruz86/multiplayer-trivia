@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ScoreCard from './ScoreCard';
 import Question from './Question';
 import { fetchQuestions, updateTimer } from '../actions/gameActions';
-
+import seeds from '../utils/seeds';
 // Styles
 import './App.css';
 
@@ -51,6 +51,9 @@ const App = props => {
 
       <footer className="footer fixed-bottom">
         <span> © Copyright 2019. Nelson Diaz</span>
+        <button className="btn btn-dark btn-sm" onClick={() => seeds()}>
+          Seeds!
+        </button>
       </footer>
     </div>
   );

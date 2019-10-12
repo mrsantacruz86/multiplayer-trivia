@@ -3,10 +3,10 @@ import { db } from '../api/firebase';
 //Actions
 //-------------------------
 import {
-  // CREATE_QUESTION,
+  CREATE_QUESTION,
   FETCH_QUESTIONS,
   // FETCH_QUESTION,
-  // DELETE_QUESTION,
+  DELETE_QUESTION,
   // EDIT_QUESTION,
   // INCREASE_RED_SCORE,
   // INCREASE_BLUE_SCORE,
@@ -17,20 +17,32 @@ import {
 
 //Actions Creators
 //-------------------------
+const Questions = db.collection('questions');
 
-export const fetchQuestions = () => async dispatch => {
+export const fetchQuestions = () => dispatch => {
   const questions = {};
-  const response = await db
-    .collection('questions')
+  db.collection('questions')
     // .limit(10)
-    .get();
-  for (let doc of response.docs) {
-    questions[doc.id] = { ...doc.data(), id: doc.id };
-  }
-  dispatch({
-    type: FETCH_QUESTIONS,
-    payload: questions
-  });
+    .onSnapshot(
+      snapshot => {
+        snapshot.forEach(doc => {
+          questions[doc.id] = { ...doc.data(), id: doc.id };
+        });
+        dispatch({
+          type: FETCH_QUESTIONS,
+          payload: questions
+        });
+      },
+      error => console.log(error)
+    );
+};
+
+export const createQuestion = question => dispatch => {
+  return Questions.doc().set(question);
+};
+
+export const deleteQuestion = id => dispatch => {
+  return Questions.doc(id).delete();
 };
 
 export const updateTimer = time => {

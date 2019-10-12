@@ -88,7 +88,8 @@
         "text": "Hermon",
         "isRight": false
       }
-    ]
+    ],
+    "ref": ""
   },
   {
     "id": 5,
@@ -110,7 +111,8 @@
         "text": "Abraham",
         "isRight": false
       }
-    ]
+    ],
+    "ref": ""
   },
   {
     "id": 6,
@@ -124,6 +126,7 @@
         "text": "False",
         "isRight": true
       }
-    ]
+    ],
+    "ref": ""
   }
 ]
