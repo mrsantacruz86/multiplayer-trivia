@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { updateTimer } from '../actions/gameActions';
 const Question = props => {
   const onSelectChoice = choice => {
     if (choice.isRight) {
@@ -24,7 +25,13 @@ const Question = props => {
     });
   };
 
+  const dispatch = useDispatch();
   const { question } = props;
+  const counter = useSelector(state => state.game.timer.counter);
+
+  // let countdown = setInterval(() => {
+  //   dispatch(updateTimer(counter - 1));
+  // }, 10000);
 
   if (!question) {
     return (
@@ -38,6 +45,9 @@ const Question = props => {
 
   return (
     <div className="container text-center">
+      <div className="text-center">
+        <h2 className="display-4 rounded-circle bg--purple timer">{counter}</h2>
+      </div>
       <div className="question-title">{question.text}</div>
       <hr className="mb-5" />
 

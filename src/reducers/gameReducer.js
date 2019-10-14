@@ -14,10 +14,10 @@ import {
   // START_TIMER,
   // RESET_TIMER
 } from '../actions/types';
-import q from '../BibleQuestions.json';
+// import q from '../BibleQuestions.json';
 
 const initialState = {
-  questions: q,
+  questions: {},
   timer: {
     isRunning: false,
     counter: 30
@@ -42,7 +42,6 @@ export default (state = initialState, action) => {
       return _.omit(state, action.payload);
 
     case UPDATE_TIMER:
-      // console.log("Reducer-->", action.payload);
       return {
         ...state,
         timer: {

@@ -3,23 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ScoreCard from './ScoreCard';
 import Question from './Question';
-import { fetchQuestions, updateTimer } from '../actions/gameActions';
+import { fetchQuestions } from '../actions/gameActions';
 import seeds from '../utils/seeds';
 // Styles
 import './App.css';
 
 const App = props => {
-  // let countdown = setInterval(() => {
-  //   this.props.updateTimer(this.props.timer - 1);
-  // }, 1000);
-
   useEffect(() => {
     dispatch(fetchQuestions());
-    dispatch(updateTimer(10));
   }, []);
 
   const questions = useSelector(state => Object.values(state.game.questions));
-  const timer = useSelector(state => state.game.timer);
 
   const dispatch = useDispatch();
 
@@ -37,7 +31,6 @@ const App = props => {
             </div>
             <div className="col text-center">
               <h1 className="display-6">BIBLE TRIVIA</h1>
-              <h2 className="display-4 rounded-circle bg--purple timer">{timer.counter}</h2>
             </div>
             <div className="col text-center">
               <ScoreCard playerName="Nelson Diaz" turn={true} score={5} />
