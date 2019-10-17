@@ -1,4 +1,4 @@
-import { db } from '../api/firebase';
+import { db, auth } from '../api/firebase';
 
 //Actions
 //-------------------------
@@ -12,7 +12,10 @@ import {
   // INCREASE_BLUE_SCORE,
   // RESET_SCORES,
   UPDATE_TIMER,
-  SWITCH_TURN
+  SWITCH_TURN,
+  SIGNUP,
+  LOGIN,
+  LOGOUT
 } from './types';
 
 //Actions Creators
